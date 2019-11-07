@@ -11,6 +11,11 @@ public class CatapultController : MonoBehaviour
     private Animator _catapultAnimator;
     private Vector2 _firstTouchPosition;
 
+    public Transform rockSpawn;
+
+    public GameObject rock;
+
+    private float deltaStrengh = 50f;
     //[Range(0f,1f)]
     //[SerializeField]
     //private float strenghThreshold = .2f;
@@ -77,6 +82,10 @@ public class CatapultController : MonoBehaviour
     public void ThrowRock()
     {
         Debug.Log("ThrowRock");
+
+
+        Instantiate(rock, rockSpawn.position,Quaternion.Euler(rockSpawn.forward));
+        rock.GetComponent<Rigidbody>().AddForce(pullStrengh * deltaStrengh * rockSpawn.forward, ForceMode.Impulse);
     }
 
 }
