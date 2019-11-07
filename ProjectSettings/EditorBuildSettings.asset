@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/AR_ImageVisualiser.unity
-    guid: 0387dcc05d334f949bc2ea34f649b1ed
-  m_configObjects: {}
+    path: Assets/_Project/Scenes/ArFoundation.unity
+    guid: cbfebd3b61bbd804e8f7c20aa123dcfc
+  m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 8bf97d340f7ae5943973a7f74eb8592c,
+      type: 2}
