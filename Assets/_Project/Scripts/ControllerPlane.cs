@@ -17,6 +17,10 @@ public class ControllerPlane : MonoBehaviour
 
     public GameObject LevelPrefab;
     public GameObject levelWrapper;
+    public Canvas UI;
+
+    public static Canvas IGCanvas;
+    public static GameObject levelCreated;
     //public GameObject Catapult;
 
     private bool isLevelCreated = false;
@@ -26,6 +30,7 @@ public class ControllerPlane : MonoBehaviour
     {
         raycastManager = GetComponent<ARRaycastManager>();
         _planeManager = GetComponent<ARPlaneManager>();
+        IGCanvas = UI;
         //Catapult.SetActive(false);
     }
 
@@ -54,7 +59,7 @@ public class ControllerPlane : MonoBehaviour
     {
         isLevelCreated = true;
         Log(positionSpawn.ToString());
-        Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
+        levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
         //Catapult.SetActive(true);
     }
 
