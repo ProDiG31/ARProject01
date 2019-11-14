@@ -15,7 +15,8 @@ public class CatapultController : MonoBehaviour
 
     public GameObject rock;
 
-    private float deltaStrengh = 50f;
+    [SerializeField]
+    private float deltaStrengh = 150f;
     //[Range(0f,1f)]
     //[SerializeField]
     //private float strenghThreshold = .2f;
@@ -65,6 +66,7 @@ public class CatapultController : MonoBehaviour
             {
                 Debug.Log("Touch Moving");
                 Vector2 pos = touch.position;
+                //Mathf.Clamp
                 pullStrengh = (_firstTouchPosition.y - pos.y) / height;
                 _catapultAnimator.SetFloat("PullStrengh", pullStrengh);
             }
@@ -72,20 +74,16 @@ public class CatapultController : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 Debug.Log("Touch End");
-
                 _catapultAnimator.SetBool("isTouching", false);
             }
-
         }
     }
 
     public void ThrowRock()
     {
         Debug.Log("ThrowRock");
-
-
-        Instantiate(rock, rockSpawn.position,Quaternion.Euler(rockSpawn.forward));
-        rock.GetComponent<Rigidbody>().AddForce(pullStrengh * deltaStrengh * rockSpawn.forward, ForceMode.Impulse);
+        GameObject rockThrow = Instantiate(rock, rockSpawn.position,Quaternion.Euler(transform.forward));
+        rockThrow.GetComponent<Rigidbody>().AddForce(_catapultAnimator.GetFloat("PullStrengh") * deltaStrengh * rockThrow.transform.forward, ForceMode.Impulse);
+        _catapultAnimator.SetFloat("PullStrengh", 0f);
     }
-
 }
