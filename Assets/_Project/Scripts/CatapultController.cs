@@ -39,14 +39,17 @@ public class CatapultController : MonoBehaviour
         height = (float)Screen.height / 2.0f;
         _catapultAnimator = GetComponent<Animator>();
         //Lr = GetComponentInChildren<LineRenderer>();
-        Lr = ControllerPlane.IGCanvas.GetComponentInChildren<LineRenderer>();
-        //g = Mathf.Abs(Physics.gravity.y);
-        Lr.enabled = true;
         ARCamera = Camera.main;
         ARLayerMask = LayerMask.NameToLayer("AR_Sphere");
         screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
     }
 
+    void Start()
+    {
+        Lr = ControllerPlane.IGCanvas.GetComponentInChildren<LineRenderer>();
+        //g = Mathf.Abs(Physics.gravity.y);
+        Lr.enabled = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -88,6 +91,7 @@ public class CatapultController : MonoBehaviour
         if (spwanPosition != Vector3.zero)
         {
             GameObject rockThrow = Instantiate(rock, spwanPosition, Quaternion.Euler(transform.forward), ControllerPlane.levelCreated.transform);
+            rockThrow.GetComponent<Rigidbody>().useGravity = false;
             rockThrow.GetComponent<Rigidbody>().AddForce(_catapultAnimator.GetFloat("PullStrengh") * deltaStrengh * ARCamera.transform.forward, ForceMode.Impulse);
             _catapultAnimator.SetFloat("PullStrengh", 0f);
         }
@@ -97,13 +101,10 @@ public class CatapultController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = ARCamera.ScreenPointToRay(screenCenter);
-
-        //point = ARCamera.ScreenToWorldPoint(new Vector3(screenCenter.x, screenCenter.y, ARCamera.nearClipPlane));
-
         if (Physics.Raycast(ray, out hit, ARLayerMask))
         {
-            //GameObject Prim = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            //Prim.transform.position = hit.point;
+            GameObject Prim = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            Prim.transform.position = hit.point;
             return hit.point;
         }
         return Vector3.zero;

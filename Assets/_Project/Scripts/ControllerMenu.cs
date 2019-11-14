@@ -7,6 +7,6 @@ public class ControllerMenu : MonoBehaviour
 {
     public void LoadLevel()
     {
-        SceneManager.LoadScene("ArFoundation");
+        SceneManager.LoadScene("GameScene");
     }
 }
