@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ControllerMenu : MonoBehaviour
 {
-    public void LoadLevel()
+    public void LoadLevel(string levelName)
     {
-        SceneManager.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene(levelName);
     }
 }
