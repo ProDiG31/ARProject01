@@ -552,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7014095130403643212, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
         type: 3}
-      propertyPath: TextDebugARRaycast
+      propertyPath: Logger
       value: 
       objectReference: {fileID: 228677606}
     - target: {fileID: 7014095130403643212, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
@@ -560,30 +560,9 @@ PrefabInstance:
       propertyPath: levelWrapper
       value: 
       objectReference: {fileID: 982526097}
-    - target: {fileID: 7014095130403643212, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
+    - target: {fileID: 1875383480618186335, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
         type: 3}
-      propertyPath: JokerNullPrefab
-      value: 
-      objectReference: {fileID: 7744838840064756009, guid: 6b5f58286ccdacf45adb79f3f00aa4d3,
-        type: 3}
-    - target: {fileID: 7014095130403643212, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
-        type: 3}
-      propertyPath: Logger
-      value: 
-      objectReference: {fileID: 228677606}
-    - target: {fileID: 7014095130403643212, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
-        type: 3}
-      propertyPath: Catapult
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587657967626762904, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
-        type: 3}
-      propertyPath: m_DetectionMode
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921494677812442030, guid: 6cc92ef1b24d8c54a8a3a61e4ce30d6a,
-        type: 3}
-      propertyPath: m_LightEstimationMode
+      propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

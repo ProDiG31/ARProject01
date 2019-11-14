@@ -88,11 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6964465856804791330}
   m_Layer: 0
-<<<<<<< Updated upstream
-  m_Name: GameObject
-=======
-  m_Name: RockSpawn
->>>>>>> Stashed changes
+  m_Name: RockSpwan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,13 +252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950d3239bb1fa6d478bf2565ef4d0e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  rockSpawn: {fileID: 0}
-  rock: {fileID: 0}
-=======
   rockSpawn: {fileID: 6964465856804791330}
   rock: {fileID: 8980965518650182391, guid: f1105e87fa4c02140b8aeec3e043bc83, type: 3}
->>>>>>> Stashed changes
+  deltaStrengh: 150
 --- !u!1 &8521881150752979210
 GameObject:
   m_ObjectHideFlags: 0
