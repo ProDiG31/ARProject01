@@ -13,7 +13,7 @@ public class ControllerPlane : MonoBehaviour
 
     //DEBBUG / TEST
     public Text Logger;
-
+    private static Text _Logger;
 
     public GameObject LevelPrefab;
     public GameObject levelWrapper;
@@ -31,6 +31,7 @@ public class ControllerPlane : MonoBehaviour
         raycastManager = GetComponent<ARRaycastManager>();
         _planeManager = GetComponent<ARPlaneManager>();
         IGCanvas = UI;
+        _Logger = Logger;
         //Catapult.SetActive(false);
     }
 
@@ -72,9 +73,9 @@ public class ControllerPlane : MonoBehaviour
         _planeManager.enabled = false;
     }
 
-    private void Log(string value)
+    public static void Log(string value)
     {
         Debug.Log(value);
-        Logger.text = Logger.text + "\n" + value;
+        _Logger.text = _Logger.text + "\n" + value;
     }
 }

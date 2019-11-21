@@ -23,7 +23,7 @@ public class CatapultController : MonoBehaviour
     //private float g;
     //private float radianAngle;
     private Camera ARCamera;
-    private Vector3 screenCenter;
+    //private Vector3 screenCenter;
     private LayerMask ARLayerMask; 
 
     void OnGUI()
@@ -41,14 +41,15 @@ public class CatapultController : MonoBehaviour
         //Lr = GetComponentInChildren<LineRenderer>();
         ARCamera = Camera.main;
         ARLayerMask = LayerMask.NameToLayer("AR_Sphere");
-        screenCenter = Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+        //screenCenter = Camera.main.ScreenToWorldPoint(new Vector3(0.5f, 0.5f));
+        //Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
     }
 
     void Start()
     {
-        Lr = ControllerPlane.IGCanvas.GetComponentInChildren<LineRenderer>();
+       
         //g = Mathf.Abs(Physics.gravity.y);
-        Lr.enabled = true;
+        //Lr.enabled = false;
     }
     // Update is called once per frame
     void Update()
@@ -78,9 +79,15 @@ public class CatapultController : MonoBehaviour
             if (touch.phase == TouchPhase.Ended)
             {
                 Debug.Log("Touch End");
+                Lr.enabled = false;
                 _catapultAnimator.SetBool("isTouching", false);
             }
         }
+    }
+
+    public Vector3 GetScreenCenter()
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(0.5f, 0.5f));
     }
 
     public void ThrowRock()
@@ -100,9 +107,10 @@ public class CatapultController : MonoBehaviour
     public Vector3 RaycastARWorld()
     {
         RaycastHit hit;
-        Ray ray = ARCamera.ScreenPointToRay(screenCenter);
+        Ray ray = ARCamera.ScreenPointToRay(GetScreenCenter());
         if (Physics.Raycast(ray, out hit, ARLayerMask))
         {
+            ControllerPlane.Log("Layer Hit : "+ hit.collider.name);
             GameObject Prim = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             Prim.transform.position = hit.point;
             return hit.point;
@@ -112,7 +120,13 @@ public class CatapultController : MonoBehaviour
 
     public void DrawLine()
     {
-        Lr.SetPosition(0, Camera.main.transform.position);
+        if(Lr == null)
+        {
+            Lr = ControllerPlane.IGCanvas.GetComponentInChildren<LineRenderer>();
+        }
+
+        Lr.enabled = false;
+        Lr.SetPosition(0, GetScreenCenter());
         Lr.SetPosition(1, RaycastARWorld());
         Lr.endColor = Color.red;
         //Camera.main.transform.position;
