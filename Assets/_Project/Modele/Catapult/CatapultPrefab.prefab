@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3410644761271811496}
   - component: {fileID: 2481326786285373784}
   - component: {fileID: 8482895710410207676}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Structure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,10 +88,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6964465856804791330}
   - component: {fileID: 3314654108779829729}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RockSpwan
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -150,7 +150,6 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: -0.5878946, z: 4.8601384}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.05
@@ -217,7 +216,7 @@ GameObject:
   - component: {fileID: 1543571901349751887}
   - component: {fileID: 1744654105856583316}
   - component: {fileID: 7433212054487957802}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +295,8 @@ GameObject:
   - component: {fileID: 7346778979627260971}
   - component: {fileID: 410889111598690709}
   - component: {fileID: 44951772}
-  m_Layer: 0
+  - component: {fileID: 1505335416}
+  m_Layer: 2
   m_Name: CatapultPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,108 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockSpawn: {fileID: 6964465856804791330}
   rock: {fileID: 8980965518650182391, guid: f1105e87fa4c02140b8aeec3e043bc83, type: 3}
+  targetIndicator: {fileID: 953314584970684168, guid: 71bb760c004ceb2419e3a13e405c8107,
+    type: 3}
   deltaStrengh: 150
+  _AudioClips:
+  - {fileID: 8300000, guid: 14c814783dd44d142ad27c6ed9af52bc, type: 3}
+  - {fileID: 8300000, guid: 9214c39ba7c9028469f847ae3f499e7e, type: 3}
+--- !u!82 &1505335416
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6029855178950946360}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8521881150752979210
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8073424526161652777}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +498,7 @@ GameObject:
   - component: {fileID: 3648807390016943375}
   - component: {fileID: 2078832804739512391}
   - component: {fileID: 558541653453851497}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}

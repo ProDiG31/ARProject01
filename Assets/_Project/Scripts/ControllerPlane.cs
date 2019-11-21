@@ -21,9 +21,9 @@ public class ControllerPlane : MonoBehaviour
 
     public static Canvas IGCanvas;
     public static GameObject levelCreated;
-    //public GameObject Catapult;
+    public GameObject Catapult;
 
-    private bool isLevelCreated = false;
+    public static bool isLevelCreated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,17 +32,17 @@ public class ControllerPlane : MonoBehaviour
         _planeManager = GetComponent<ARPlaneManager>();
         IGCanvas = UI;
         _Logger = Logger;
-        //Catapult.SetActive(false);
+        Catapult.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 1)
+        if (Input.touchCount == 1 && !isLevelCreated)
         {
             List<ARRaycastHit> hitResults = new List<ARRaycastHit>();
             
-            raycastManager.Raycast(Input.GetTouch(0).position,hitResults, TrackableType.Planes);
+            raycastManager.Raycast(Input.GetTouch(0).position, hitResults, TrackableType.Planes);
             
             foreach (ARRaycastHit hit in hitResults)
             {
@@ -61,7 +61,7 @@ public class ControllerPlane : MonoBehaviour
         isLevelCreated = true;
         Log(positionSpawn.ToString());
         levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
-        //Catapult.SetActive(true);
+        Catapult.SetActive(true);
     }
 
     void DisablePlanes()
@@ -76,6 +76,7 @@ public class ControllerPlane : MonoBehaviour
     public static void Log(string value)
     {
         Debug.Log(value);
+        if (_Logger.text.Length > 200) _Logger.text = "";
         _Logger.text = _Logger.text + "\n" + value;
     }
 }

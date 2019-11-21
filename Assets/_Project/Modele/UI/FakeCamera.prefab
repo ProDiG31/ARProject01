@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3183036075662698803}
   - component: {fileID: 1137825457003972662}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FakeCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
