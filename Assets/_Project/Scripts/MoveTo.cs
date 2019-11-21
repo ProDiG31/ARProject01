@@ -9,6 +9,7 @@ public class MoveTo : MonoBehaviour
     public Transform FinalDestination;
 
     private NavMeshAgent _agent;
+    private Animator _animator;
     private bool finalStarted = false;
     private int _choosenCarrotIndex = 0;
 
@@ -17,13 +18,15 @@ public class MoveTo : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _agent.destination = Carrots[_choosenCarrotIndex].transform.position;
-        
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(IsDestinationReached())
+        transform.LookAt(_agent.destination);
+
+        if (IsDestinationReached())
         {
             if (!finalStarted)
             {
@@ -44,6 +47,7 @@ public class MoveTo : MonoBehaviour
             else
             {
                 _agent.isStopped = true;
+                _animator.SetBool("isLeaving", true);
             }
         }
     }
