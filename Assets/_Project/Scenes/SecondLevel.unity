@@ -574,7 +574,6 @@ GameObject:
   - component: {fileID: 270026594}
   - component: {fileID: 270026593}
   - component: {fileID: 270026591}
-  - component: {fileID: 270026590}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -582,22 +581,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &270026590
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270026589}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &270026591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -684,6 +667,8 @@ GameObject:
   - component: {fileID: 395103014}
   - component: {fileID: 395103013}
   - component: {fileID: 395103017}
+  - component: {fileID: 395103019}
+  - component: {fileID: 395103018}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -780,6 +765,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!138 &395103018
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395103012}
+  m_ConnectedBody: {fileID: 1979804972}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!138 &395103019
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395103012}
+  m_ConnectedBody: {fileID: 937496932}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
 --- !u!1 &431599554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1736,10 @@ PrefabInstance:
       propertyPath: FinalDestination
       value: 
       objectReference: {fileID: 889441780}
+    - target: {fileID: 999384962, guid: d61bd01ffec97ac4598ca970e6cd618f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1448278140, guid: d61bd01ffec97ac4598ca970e6cd618f, type: 3}
       propertyPath: m_Acceleration
       value: 25
@@ -1735,6 +1752,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1448278140, guid: d61bd01ffec97ac4598ca970e6cd618f, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d61bd01ffec97ac4598ca970e6cd618f, type: 3}
 --- !u!1 &1086071093
@@ -1746,7 +1767,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086071094}
-  - component: {fileID: 1086071096}
   m_Layer: 0
   m_Name: Inclined Plan
   m_TagString: Untagged
@@ -1771,22 +1791,6 @@ Transform:
   m_Father: {fileID: 2031348043}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1086071096
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086071093}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1213230504
 GameObject:
   m_ObjectHideFlags: 0

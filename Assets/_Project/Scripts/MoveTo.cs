@@ -11,7 +11,10 @@ public class MoveTo : MonoBehaviour
     private NavMeshAgent _agent;
     private Animator _animator;
     private bool _isBackToHome = false;
+    private bool _isAgentBlocked = false;
     private int _choosenCarrotIndex = 0;
+    // Don't set this too high, or NavMesh.SamplePosition() may slow down
+    private float _onMeshThreshold = 3;
 
     //private LineRenderer _lineGizmo;
     // Use for Debug
@@ -54,12 +57,26 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_isAgentBlocked)
+        {
+            ManageAgent();
+        }
+
+        UnblockAgent();
+    }
+
+    private void ManageAgent()
+    {
+        transform.position = _agent.nextPosition;
         transform.LookAt(_agent.destination);
 
-        if (IsDestinationReached())
+        if (_agent.remainingDistance < _agent.stoppingDistance)
         {
             if (!_isBackToHome)
             {
+                Debug.Log("Path status : " + _agent.pathStatus);
+                Debug.Log("Path calculated ? : " + _agent.pathPending);
+                Debug.Log("A carrot wil disappear !");
                 Carrots[_choosenCarrotIndex].SetActive(false);
                 _choosenCarrotIndex++;
 
@@ -81,7 +98,43 @@ public class MoveTo : MonoBehaviour
         }
     }
 
-    private bool IsDestinationReached() =>
-        _agent.pathStatus == NavMeshPathStatus.PathComplete
-        && _agent.remainingDistance < 0.1f;
+    private void UnblockAgent()
+    {
+        if (
+            !_isAgentBlocked
+            && _agent.pathStatus == NavMeshPathStatus.PathInvalid
+        )
+        {
+            _isAgentBlocked = true;
+            _agent.enabled = false;
+        }
+        else if (_isAgentBlocked && IsAgentOnNavMesh(_agent.gameObject))
+        {
+            _isAgentBlocked = false;
+            //transform.rotation = Quaternion.Euler(Vector3.zero);
+            _agent.nextPosition = transform.position;
+            _agent.enabled = true;
+        }
+    }
+
+    public bool IsAgentOnNavMesh(GameObject agentObject)
+    {
+        Vector3 agentPosition = agentObject.transform.position;
+        NavMeshHit hit;
+
+        // Check for nearest point on navmesh to agent, within onMeshThreshold
+        if (NavMesh.SamplePosition(agentPosition, out hit, _onMeshThreshold, NavMesh.AllAreas))
+        {
+            // Check if the positions are vertically aligned
+            if (Mathf.Approximately(agentPosition.x, hit.position.x)
+                && Mathf.Approximately(agentPosition.z, hit.position.z))
+            {
+                // Lastly, check if object is below navmesh
+                var hitPosition = hit.position.y; 
+                return agentPosition.y < hitPosition + 0.01f && agentPosition.y >= hitPosition;
+            }
+        }
+
+        return false;
+    }
 }

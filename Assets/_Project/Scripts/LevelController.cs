@@ -25,7 +25,7 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         _elapsedTime += Time.deltaTime;
-        if(_elapsedTime >= 3)
+        if(_elapsedTime >= 1)
         {
             _elapsedTime = 0;
             GenerateNavigation();
