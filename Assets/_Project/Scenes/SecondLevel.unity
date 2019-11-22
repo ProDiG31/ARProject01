@@ -1660,7 +1660,7 @@ PrefabInstance:
     - target: {fileID: 6641135282280690604, guid: d61bd01ffec97ac4598ca970e6cd618f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.137
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6641135282280690604, guid: d61bd01ffec97ac4598ca970e6cd618f,
         type: 3}
@@ -3165,7 +3165,7 @@ PrefabInstance:
     - target: {fileID: 5781956996450342649, guid: 40ca191b5fad2e9449bbcce8ec950040,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.277
+      value: 1.079
       objectReference: {fileID: 0}
     - target: {fileID: 5781956996450342649, guid: 40ca191b5fad2e9449bbcce8ec950040,
         type: 3}
@@ -3512,7 +3512,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.016666668
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 5846a795ace9c184bb78a8fc60aac933, type: 2}
 --- !u!114 &2031348045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3759,7 +3759,7 @@ PrefabInstance:
     - target: {fileID: 2578865737642502578, guid: 8c0f06a5954f1234dbaba4d4d805fd86,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.049999952
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 2578865737642502578, guid: 8c0f06a5954f1234dbaba4d4d805fd86,
         type: 3}
