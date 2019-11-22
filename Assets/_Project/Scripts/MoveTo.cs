@@ -83,5 +83,5 @@ public class MoveTo : MonoBehaviour
 
     private bool IsDestinationReached() =>
         _agent.pathStatus == NavMeshPathStatus.PathComplete
-        && _agent.remainingDistance < 0.25f;
+        && _agent.remainingDistance < 0.1f;
 }
