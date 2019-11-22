@@ -32,18 +32,30 @@ public class CatapultController : MonoBehaviour
 
     private AudioSource _audioSource;
 
-    [SerializeField]
-    private List<AudioClip> _AudioClips;
+    public List<AudioClip> _AudioClips;
 
-    private string hitted = "";
+    //private string hitted = "";
+    private GameObject RayCastedItem;
+
     void OnGUI()
     {
         // Compute a fontSize based on the size of the screen width.
         GUI.skin.label.fontSize = (int)(Screen.width / 25.0f);
         GUI.Label(new Rect(20, 20, width, height * 0.25f), "str =   " + _pullStrengh.ToString("f2"));
         GUI.Label(new Rect(20, 45, width, height * 0.25f), "Trgt =  " + targetIndicator.activeSelf);
-        GUI.Label(new Rect(20, 70, width, height * 0.25f), "Cam =  " + Camera.main.name);
-        GUI.Label(new Rect(20, 100, width, height * 0.25f), "hit =  " + hitted);
+        //GUI.Label(new Rect(20, 100, width, height * 0.25f), "hit =  " + hitted);
+
+        if(RayCastedItem != null)
+        {
+            if (RayCastedItem.GetComponent<DestructibleProps>())
+            {
+                DestructibleProps item = RayCastedItem.GetComponent<DestructibleProps>();
+                GUI.Label(new Rect(20, 100, width, height * 0.25f), "Ray =  " + RayCastedItem.name + " - " + item._lifePoint + "/" + item.LifePointMax);
+            } else
+            {
+                GUI.Label(new Rect(20, 100, width, height * 0.25f), "Ray =  " + RayCastedItem.name);
+            }
+        }
 
     }
 
@@ -133,7 +145,8 @@ public class CatapultController : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hitProps, ARPropsMask))
             {
-                hitted = "1 " + hitProps.transform.name;
+                //hitted = "1 " + hitProps.transform.name;
+                RayCastedItem = hitProps.transform.gameObject;
                 targetIndicator.SetActive(true);
                 targetIndicator.transform.position = hitProps.point;
                 targetIndicator.transform.rotation = Quaternion.Euler(hitProps.normal * 90);
@@ -149,7 +162,7 @@ public class CatapultController : MonoBehaviour
             Vector3 ArCamBearing = new Vector3(ArCamForward.x, 0, ArCamForward.z).normalized;
             detectedPlanePose.rotation = Quaternion.LookRotation(ArCamBearing);
             targetIndicator.transform.SetPositionAndRotation(detectedPlanePose.position, detectedPlanePose.rotation);
-            hitted = "2 - AR plan";
+            //hitted = "2 - AR plan";
             targetSet = true;
         }
 
@@ -164,7 +177,7 @@ public class CatapultController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hitSphere, ARBridgeMask))
         {
             PlaySound(1);
-            hitted = hitSphere.transform.name;
+            //hitted = hitSphere.transform.name;
             GameObject rockThrow = Instantiate(rock, hitSphere.point, Quaternion.Euler(ARCamera.transform.forward), ControllerPlane.levelCreated.transform);
             rockThrow.GetComponent<Rigidbody>().AddForce(_catapultAnimator.GetFloat("PullStrengh") * deltaStrengh * ARCamera.transform.forward, ForceMode.Impulse);
             _catapultAnimator.SetFloat("PullStrengh", 0f);

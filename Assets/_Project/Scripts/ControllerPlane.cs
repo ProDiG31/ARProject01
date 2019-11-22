@@ -13,7 +13,9 @@ public class ControllerPlane : MonoBehaviour
 
     //DEBBUG / TEST
     public Text Logger;
+    public Text Score; 
     private static Text _Logger;
+    private static Text _Score;
 
     public GameObject LevelPrefab;
     public GameObject levelWrapper;
@@ -22,6 +24,7 @@ public class ControllerPlane : MonoBehaviour
     public static Canvas IGCanvas;
     public static GameObject levelCreated;
     public GameObject Catapult;
+    public GameObject HandAnimationPreview; 
 
     public static bool isLevelCreated = false;
 
@@ -32,6 +35,7 @@ public class ControllerPlane : MonoBehaviour
         _planeManager = GetComponent<ARPlaneManager>();
         IGCanvas = UI;
         _Logger = Logger;
+        _Score = Score;
         Catapult.SetActive(false);
     }
 
@@ -62,6 +66,7 @@ public class ControllerPlane : MonoBehaviour
         Log(positionSpawn.ToString());
         levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
         Catapult.SetActive(true);
+        HandAnimationPreview.SetActive(false);
     }
 
     void DisablePlanes()
@@ -78,5 +83,11 @@ public class ControllerPlane : MonoBehaviour
         Debug.Log(value);
         if (_Logger.text.Length > 200) _Logger.text = "";
         _Logger.text = _Logger.text + "\n" + value;
+    }
+
+    public static void AddRewardPoint(int rwd)
+    {
+        int ActualScore = int.Parse(_Score.text);
+        _Score.text = (ActualScore + rwd).ToString(); 
     }
 }
