@@ -213,7 +213,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773066729557612330}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0.27152565, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1184498071859580913}
   m_Father: {fileID: 6641135282280690604}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 90, z: 0}
@@ -610,7 +614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6804914958518964534}
   m_LocalRotation: {x: -0.49991274, y: 0.50008726, z: 0.49991274, w: 0.50008726}
-  m_LocalPosition: {x: -0, y: 1.0556147, z: 0.67}
+  m_LocalPosition: {x: -0, y: 1.25, z: 0}
   m_LocalScale: {x: 0.800945, y: 0.800945, z: 1}
   m_Children:
   - {fileID: 1551510422671438209}
@@ -851,9 +855,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.7
-  m_Height: 1.75
+  m_Height: 2.25
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!95 &1448278141
 Animator:
   serializedVersion: 3
@@ -898,7 +902,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7670004560700735935}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.9
   m_Speed: 1
   m_Acceleration: 10
   avoidancePriority: 50
