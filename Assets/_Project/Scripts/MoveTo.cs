@@ -5,19 +5,20 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
-    public GameObject[] Carrots;
+    public GameObject Carrot;
     public Transform FinalDestination;
 
     private NavMeshAgent _agent;
     private Animator _animator;
     private bool _isBackToHome = false;
     private bool _isAgentBlocked = false;
-    private int _choosenCarrotIndex = 0;
 
     // Don't set this too high, or NavMesh.SamplePosition() may slow down
     private float _onMeshThreshold = 2;
 
     private LineRenderer _lineGizmo;
+    private bool _isAnimated = false;
+
     //Use for Debug
     void OnDrawGizmos()
     {
@@ -50,7 +51,7 @@ public class MoveTo : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _agent.destination = Carrots[_choosenCarrotIndex].transform.position;
+        _agent.SetDestination(Carrot.transform.position);
         _animator = GetComponent<Animator>();
     }
 
@@ -58,89 +59,86 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_isAgentBlocked)
-        {
-            ManageAgent();
-        }
-
-        UnblockAgent();
+        AdjustPosition();
+        ManageAgent();
     }
 
     private void ManageAgent()
     {
-        //transform.position = _agent.nextPosition;
-        //transform.LookAt(_agent.destination);
-        //if (!_agent.pathPending)
-        //Debug.Log("path ? :" + NavMesh.CalculatePath(transform.position, _agent.destination, NavMesh.AllAreas, new NavMeshPath()));
-        if (_agent.remainingDistance < _agent.stoppingDistance && _agent.hasPath)
-        //if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)
-        //if (_agent.remainingDistance < _agent.stoppingDistance && IsAgentOnNavMesh(_agent.gameObject))
+        if (!_isAnimated && _agent.hasPath)
         {
-            if (!_isBackToHome)
+            RefreshGoal();
+
+            if (_agent.remainingDistance < _agent.stoppingDistance)
             {
-                //Debug.Log("Path status : " + _agent.pathStatus);
-                //Debug.Log("Path calculated ? : " + _agent.pathPending);
-                //Debug.Log("A carrot wil disappear !");
-                //Debug.Log("----------------------");
-
-                if(_choosenCarrotIndex == 1)
+                if (!_isBackToHome)
                 {
-                    var carrot = _agent.destination;
-                    var agent = _agent.gameObject.transform.position;
-                    Debug.Log("carrot position : " + carrot.x +" " + carrot.y +" " + carrot.z );
-                    Debug.Log("bunny position : " + agent.x +" " + agent.y +" " + agent.z );
-                }
-                Carrots[_choosenCarrotIndex].SetActive(false);
-                _choosenCarrotIndex++;
-
-                if (_choosenCarrotIndex == Carrots.Length)
-                {
+                    Carrot.SetActive(false);
                     _agent.SetDestination(FinalDestination.position);
                     _isBackToHome = true;
                 }
                 else
                 {
-                    _agent.SetDestination(Carrots[_choosenCarrotIndex].transform.position);
+                    SetNavMeshAgentActive(false);
+                    _isAnimated = true;
+                    _animator.SetBool("isLeaving", true);
+                    
                 }
-            }
-            else
-            {
-                _agent.isStopped = true;
-                _animator.SetBool("isLeaving", true);
             }
         }
     }
 
-    private void UnblockAgent()
+    private IEnumerator WaitAnimation()
     {
+        yield return new WaitForSeconds(2f);
+    }
+
+
+    private void AdjustPosition()
+    {
+        var isOnNavMesh = IsAgentOnNavMesh();
+        var isGrounded = IsGrounded(transform.position);
+
         if (
-            !_isAgentBlocked
-            && _agent.pathStatus == NavMeshPathStatus.PathInvalid
+            ( !_agent.hasPath 
+            && !isGrounded )
+            && !_isAgentBlocked
         )
         {
             _isAgentBlocked = true;
-            _agent.enabled = false;
-        }
-        else if (_isAgentBlocked)
+            SetNavMeshAgentActive(false);
+        } 
+        else if (_isAgentBlocked && isGrounded && isOnNavMesh && !_isAnimated)
         {
-            if (IsAgentOnNavMesh(_agent.gameObject))
-            {
-                _isAgentBlocked = false;
-                transform.rotation = Quaternion.Euler(Vector3.zero);
-                _agent.Warp(transform.position);
-                _agent.enabled = true;
-                Debug.Log("Reached? : "+ (_agent.remainingDistance < _agent.stoppingDistance));
-                Debug.Log("path valid? : "+_agent.pathStatus);
-                Debug.Log("path stale? : "+_agent.isPathStale);
-                Debug.Log("path stale? : "+ _agent.hasPath);
-                //_agent.ResetPath();
-            }
+            _isAgentBlocked = false;
+            SetNavMeshAgentActive(true);
         }
     }
 
-    public bool IsAgentOnNavMesh(GameObject agentObject)
+    private void RefreshGoal()
     {
-        Vector3 agentPosition = agentObject.transform.position;
+        if (Carrot.activeSelf)
+        {
+            _agent.SetDestination(Carrot.transform.position);
+        }
+        else
+        {
+            _agent.SetDestination(FinalDestination.position);
+        }
+        transform.LookAt(_agent.destination);
+    }
+
+    private void SetNavMeshAgentActive(bool isActive)
+    {
+        _agent.updatePosition = isActive;
+        _agent.updateRotation = isActive;
+        _agent.enabled = isActive;
+
+    }
+
+    public bool IsAgentOnNavMesh()
+    {
+        Vector3 agentPosition = _agent.gameObject.transform.position;
         NavMeshHit hit;
 
         // Check for nearest point on navmesh to agent, within onMeshThreshold
@@ -153,11 +151,16 @@ public class MoveTo : MonoBehaviour
             )
             {
                 // Lastly, check if object is below navmesh
-            }
                 var hitPosition = hit.position.y;
-                return agentPosition.y < hitPosition + 0.05f && agentPosition.y > 0;
+                return agentPosition.y < hitPosition + 0.2f;// && agentPosition.y > hitPosition - 0.05f;
+            }
         }
 
         return false;
+    }
+
+    private bool IsGrounded(Vector3 position)
+    {
+        return Physics.Raycast(position, Vector3.down, 0.2f);
     }
 }
