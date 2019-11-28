@@ -67,7 +67,7 @@ public class MoveTo : MonoBehaviour
     {
         if (!_isAnimated && _agent.hasPath)
         {
-            RefreshGoal();
+            //RefreshGoal();
 
             if (_agent.remainingDistance < _agent.stoppingDistance)
             {
@@ -101,7 +101,7 @@ public class MoveTo : MonoBehaviour
 
         if (
             ( !_agent.hasPath 
-            && !isGrounded )
+            || !isGrounded )
             && !_isAgentBlocked
         )
         {
@@ -130,8 +130,15 @@ public class MoveTo : MonoBehaviour
 
     private void SetNavMeshAgentActive(bool isActive)
     {
+        _isAgentBlocked = !isActive;
         _agent.updatePosition = isActive;
         _agent.updateRotation = isActive;
+        if (isActive)
+        {
+            _agent.Warp(transform.position);
+            _agent.nextPosition = transform.position;
+            RefreshGoal();
+        }
         _agent.enabled = isActive;
 
     }
