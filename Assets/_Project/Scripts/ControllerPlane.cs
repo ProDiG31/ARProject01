@@ -16,6 +16,7 @@ public class ControllerPlane : MonoBehaviour
     public Text Score; 
     private static Text _Logger;
     private static Text _Score;
+    public static GameObject ExplosionSystem;
 
     public GameObject LevelPrefab;
     public GameObject levelWrapper;
@@ -23,8 +24,12 @@ public class ControllerPlane : MonoBehaviour
 
     public static Canvas IGCanvas;
     public static GameObject levelCreated;
+
     public GameObject Catapult;
-    public GameObject HandAnimationPreview; 
+    public GameObject HandAnimationPreview;
+    public GameObject ParticleSystem;
+    public GameObject RotatePositiveButton;
+    public GameObject RotateNegativeButton;
 
     public static bool isLevelCreated = false;
 
@@ -36,7 +41,8 @@ public class ControllerPlane : MonoBehaviour
         IGCanvas = UI;
         _Logger = Logger;
         _Score = Score;
-        Catapult.SetActive(false);
+        ExplosionSystem = ParticleSystem;
+        DisactiveGameUI();
     }
 
     // Update is called once per frame
@@ -65,16 +71,27 @@ public class ControllerPlane : MonoBehaviour
         isLevelCreated = true;
         Log(positionSpawn.ToString());
         levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
+        ActivateGameUI();
+    }
+
+    void ActivateGameUI()
+    {
         Catapult.SetActive(true);
+        RotatePositiveButton.SetActive(true);
+        RotateNegativeButton.SetActive(true);
         HandAnimationPreview.SetActive(false);
+    }
+
+    void DisactiveGameUI()
+    {
+        Catapult.SetActive(false);
+        RotatePositiveButton.SetActive(false);
+        RotateNegativeButton.SetActive(false);
     }
 
     void DisablePlanes()
     {
-        foreach (ARPlane plane in _planeManager.trackables)
-        {
-            plane.gameObject.SetActive(false);
-        }
+        foreach (ARPlane plane in _planeManager.trackables) plane.gameObject.SetActive(false);
         _planeManager.enabled = false;
     }
 

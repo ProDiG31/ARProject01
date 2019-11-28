@@ -433,6 +433,12 @@ MonoBehaviour:
   targetIndicator: {fileID: 953314584970684168, guid: 71bb760c004ceb2419e3a13e405c8107,
     type: 3}
   deltaStrengh: 150
+  ARBridgeMask:
+    serializedVersion: 2
+    m_Bits: 512
+  ARPropsMask:
+    serializedVersion: 2
+    m_Bits: 1024
   _AudioClips:
   - {fileID: 8300000, guid: 14c814783dd44d142ad27c6ed9af52bc, type: 3}
   - {fileID: 8300000, guid: 9214c39ba7c9028469f847ae3f499e7e, type: 3}

@@ -151,5 +151,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LifePointMax: 300
-  Reward: 0
+  Reward: 50
   _lifePoint: 0
