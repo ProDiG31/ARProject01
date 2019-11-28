@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
+    public GameObject Level;
     public GameObject Carrot;
     public Transform FinalDestination;
 
@@ -51,7 +52,6 @@ public class MoveTo : MonoBehaviour
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _agent.SetDestination(Carrot.transform.position);
         _animator = GetComponent<Animator>();
     }
 
@@ -59,16 +59,19 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ManageAgent();
+        if(!Level.GetComponent<LevelPlaneManager>().IsKinematic && IsAgentOnNavMesh())
+            ManageAgent();
         //AdjustPosition();
     }
 
     private void ManageAgent()
     {
-        if (!_isAnimated && _agent.hasPath)
+        if(!_agent.hasPath)
         {
             RefreshGoal();
-
+        }
+        else if (!_isAnimated)
+        {
             if (_agent.remainingDistance < _agent.stoppingDistance)
             {
                 if (!_isBackToHome)

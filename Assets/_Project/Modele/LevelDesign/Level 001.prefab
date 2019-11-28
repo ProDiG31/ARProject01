@@ -41,8 +41,11 @@ GameObject:
   - component: {fileID: 945739324406478183}
   - component: {fileID: 7303930694025999146}
   - component: {fileID: 123539821679618510}
+  - component: {fileID: 1950647923603098475}
+  - component: {fileID: 6145370547510494946}
+  - component: {fileID: 5800460867835788528}
   m_Layer: 10
-  m_Name: LevelPlane
+  m_Name: Level 001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +99,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b169e8f3d811a0a4f9b9a03eb4bc16d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1950647923603098475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945739324406478187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 2
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  m_UseGeometry: 1
+  m_DefaultArea: 3
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.016666668
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!114 &6145370547510494946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945739324406478187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 3
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: 00000000
+--- !u!114 &5800460867835788528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945739324406478187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 15, y: 10, z: 15}
+  m_Center: {x: 0, y: 2, z: 5}
+  m_Area: 3
+  m_AffectedAgents: 00000000
 --- !u!1 &1385054319653396457
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +201,7 @@ GameObject:
   - component: {fileID: 5343587599935519487}
   - component: {fileID: 7017488157223605131}
   - component: {fileID: 8184672821309411614}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,6 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &4487800646700614607
 GameObject:
@@ -498,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &6150309966059309264
 GameObject:
@@ -575,7 +641,7 @@ GameObject:
   - component: {fileID: 5859827454424036233}
   - component: {fileID: 6670304537821753505}
   - component: {fileID: 6999123547711208899}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,6 +847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &8250373574426669785
 GameObject:
