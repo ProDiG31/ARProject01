@@ -59,15 +59,15 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AdjustPosition();
         ManageAgent();
+        //AdjustPosition();
     }
 
     private void ManageAgent()
     {
         if (!_isAnimated && _agent.hasPath)
         {
-            //RefreshGoal();
+            RefreshGoal();
 
             if (_agent.remainingDistance < _agent.stoppingDistance)
             {
@@ -88,20 +88,16 @@ public class MoveTo : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitAnimation()
-    {
-        yield return new WaitForSeconds(2f);
-    }
-
-
     private void AdjustPosition()
     {
         var isOnNavMesh = IsAgentOnNavMesh();
         var isGrounded = IsGrounded(transform.position);
-
+        
         if (
-            ( !_agent.hasPath 
-            || !isGrounded )
+            ( 
+            !isGrounded
+            && !isOnNavMesh
+            )
             && !_isAgentBlocked
         )
         {
