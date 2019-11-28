@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingObjectHandler : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         DestructibleProps props = other.gameObject.GetComponent<DestructibleProps>();
         if (props)
