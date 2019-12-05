@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class MoveTo : MonoBehaviour
 {
-    public GameObject Level;
     public GameObject Carrot;
     public Transform FinalDestination;
 
+    // GetComponent not accessible on mobile
+    [SerializeField]
     private NavMeshAgent _agent;
     private Animator _animator;
     private bool _isBackToHome = false;
@@ -16,6 +17,7 @@ public class MoveTo : MonoBehaviour
 
     // Don't set this too high, or NavMesh.SamplePosition() may slow down
     private float _onMeshThreshold = 2;
+    private LevelPlaneManager _levelPlaneManager;
 
     private LineRenderer _lineGizmo;
     private bool _isAnimated = false;
@@ -25,16 +27,7 @@ public class MoveTo : MonoBehaviour
     {
         //Init _lineGizmo Debug
         _lineGizmo = GetComponent<LineRenderer>();
-        if (_lineGizmo == null)
-        {
-            _lineGizmo = gameObject.AddComponent<LineRenderer>();
-            _lineGizmo.material = new Material(Shader.Find("Sprites/Default")) { color = Color.green };
-            _lineGizmo.startWidth = 0.1f;
-            _lineGizmo.endWidth = 0.1f;
-
-            _lineGizmo.startColor = Color.green;
-            _lineGizmo.endColor = Color.yellow;
-        }
+        _lineGizmo.material = new Material(Shader.Find("Sprites/Default"));
 
         if (_agent == null || _agent.path == null)
             return;
@@ -51,15 +44,18 @@ public class MoveTo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
+    #if UNITY_EDITOR
+        _agent.speed = 2f;
+        #endif
         _animator = GetComponent<Animator>();
+        _levelPlaneManager = GetComponentInParent<LevelPlaneManager>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(!Level.GetComponent<LevelPlaneManager>().IsKinematic && IsAgentOnNavMesh())
+        if(!_levelPlaneManager.IsKinematic && IsAgentOnNavMesh())
             ManageAgent();
         //AdjustPosition();
     }

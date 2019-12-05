@@ -59,7 +59,7 @@ namespace eDmitriyAssets.NavmeshLinksGenerator
 
 
             #if UNITY_EDITOR
-            if( !Application.isPlaying ) EditorSceneManager.MarkSceneDirty( gameObject.scene );
+            //if( !Application.isPlaying ) EditorSceneManager.MarkSceneDirty( gameObject.scene );
             #endif
 
         }
