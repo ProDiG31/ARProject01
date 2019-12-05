@@ -2,15 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CanvasController : MonoBehaviour
 {
+    public Slider StrengthSlider;
+    public Image SliderInfill;
 
-    private bool _isRotating = false; 
+    public GameObject Catapult;
+    public GameObject HandAnimationPreview;
+    public GameObject RotatePositiveButton;
+    public GameObject RotateNegativeButton;
+    public GameObject Score;
+    public GameObject PausePanel;
+    private bool _isRotating = false;
+
+
+    public void ActivateGameUI()
+    {
+        Score.SetActive(true);
+        StrengthSlider.gameObject.SetActive(true);
+        Catapult.SetActive(true);
+        RotatePositiveButton.SetActive(true);
+        RotateNegativeButton.SetActive(true);
+        HandAnimationPreview.SetActive(false);
+        PausePanel.SetActive(false);
+    }
+
+    public void DisactiveGameUI()
+    {
+        Score.SetActive(false);
+        StrengthSlider.gameObject.SetActive(false);
+        Catapult.SetActive(false);
+        RotatePositiveButton.SetActive(false);
+        RotateNegativeButton.SetActive(false);
+        PausePanel.SetActive(false);
+    }
+
+    public void UpdateStrengthSlider(float str)
+    {
+        StrengthSlider.value = str;
+        SliderInfill.color = Color.Lerp(Color.grey, Color.red, str);
+    }
 
     public void LoadStartMenuScene()
     {
         SceneManager.LoadScene("StartMenu");
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        PausePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        PausePanel.SetActive(false);
     }
 
     public void RotatePositiveLevel()

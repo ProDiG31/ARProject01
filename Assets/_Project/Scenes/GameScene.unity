@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -223,12 +223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &360249955 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 360249955, guid: e67ee0c9ab79b924e909dd64c15ae981,
-    type: 3}
-  m_PrefabInstance: {fileID: 5548014232426570001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!223 &362250085 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 5548014232098807412, guid: e67ee0c9ab79b924e909dd64c15ae981,
@@ -253,12 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &722394907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 722394907, guid: e67ee0c9ab79b924e909dd64c15ae981,
-    type: 3}
-  m_PrefabInstance: {fileID: 5548014232426570001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &788948240 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1142874190259129535, guid: 5662633b65b8ef846a18551185379423,
@@ -374,18 +362,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6a238ae1d10e694fa78473483390518, type: 3}
---- !u!1 &1078981690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6131526803771473468, guid: e6a238ae1d10e694fa78473483390518,
-    type: 3}
-  m_PrefabInstance: {fileID: 1078981689}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1424385150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1424385150, guid: e67ee0c9ab79b924e909dd64c15ae981,
-    type: 3}
-  m_PrefabInstance: {fileID: 5548014232426570001}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1581793466
 GameObject:
   m_ObjectHideFlags: 0
@@ -609,6 +585,11 @@ PrefabInstance:
       propertyPath: m_UseRelativeTransform
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1016276072330351301, guid: 5662633b65b8ef846a18551185379423,
+        type: 3}
+      propertyPath: m_UseCustomRendererAsset
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5662633b65b8ef846a18551185379423, type: 3}
 --- !u!1 &5083270806763374851
@@ -753,21 +734,13 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1424385150, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
-      propertyPath: m_Name
-      value: RotatePositiveButton
+    - target: {fileID: 924127423, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1424385152, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RotatePositiveLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 722394907, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
-      propertyPath: m_Name
-      value: RotateNegativeButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 722394909, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RotateNegativeLevel
+    - target: {fileID: 1850660294, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67ee0c9ab79b924e909dd64c15ae981, type: 3}
@@ -817,12 +790,8 @@ MonoBehaviour:
     type: 3}
   levelWrapper: {fileID: 982526097}
   UI: {fileID: 362250085}
-  Catapult: {fileID: 1078981690}
-  HandAnimationPreview: {fileID: 360249955}
-  ParticleSystem: {fileID: 3838910417953897856, guid: 9d296f12a3df45142be0ea05282f338a,
+  ParticleSystem: {fileID: 3838910417953897856, guid: 80f2df24489c0244aab0be449a6a9366,
     type: 3}
-  RotatePositiveButton: {fileID: 1424385150}
-  RotateNegativeButton: {fileID: 722394907}
 --- !u!1001 &6727571093296771394
 PrefabInstance:
   m_ObjectHideFlags: 0

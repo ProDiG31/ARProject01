@@ -22,14 +22,15 @@ public class ControllerPlane : MonoBehaviour
     public GameObject levelWrapper;
     public Canvas UI;
 
-    public static Canvas IGCanvas;
+    public static CanvasController IGCanvas;
     public static GameObject levelCreated;
 
-    public GameObject Catapult;
-    public GameObject HandAnimationPreview;
     public GameObject ParticleSystem;
-    public GameObject RotatePositiveButton;
-    public GameObject RotateNegativeButton;
+
+    //public GameObject Catapult;
+    //public GameObject HandAnimationPreview;
+    //public GameObject RotatePositiveButton;
+    //public GameObject RotateNegativeButton;
 
     public static bool isLevelCreated = false;
 
@@ -38,22 +39,19 @@ public class ControllerPlane : MonoBehaviour
     {
         raycastManager = GetComponent<ARRaycastManager>();
         _planeManager = GetComponent<ARPlaneManager>();
-        IGCanvas = UI;
+        IGCanvas = UI.GetComponent<CanvasController>();
         _Logger = Logger;
         _Score = Score;
         ExplosionSystem = ParticleSystem;
-        DisactiveGameUI();
+        IGCanvas.DisactiveGameUI();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 1 && !isLevelCreated)
-        {
+        if (Input.touchCount == 1 && !isLevelCreated) {
             List<ARRaycastHit> hitResults = new List<ARRaycastHit>();
-            
             raycastManager.Raycast(Input.GetTouch(0).position, hitResults, TrackableType.Planes);
-            
             foreach (ARRaycastHit hit in hitResults)
             {
                 if (!isLevelCreated)
@@ -71,22 +69,7 @@ public class ControllerPlane : MonoBehaviour
         isLevelCreated = true;
         Log(positionSpawn.ToString());
         levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
-        ActivateGameUI();
-    }
-
-    void ActivateGameUI()
-    {
-        Catapult.SetActive(true);
-        RotatePositiveButton.SetActive(true);
-        RotateNegativeButton.SetActive(true);
-        HandAnimationPreview.SetActive(false);
-    }
-
-    void DisactiveGameUI()
-    {
-        Catapult.SetActive(false);
-        RotatePositiveButton.SetActive(false);
-        RotateNegativeButton.SetActive(false);
+        IGCanvas.ActivateGameUI();
     }
 
     void DisablePlanes()

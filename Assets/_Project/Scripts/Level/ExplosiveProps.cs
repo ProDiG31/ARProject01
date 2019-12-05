@@ -8,6 +8,7 @@ public class ExplosiveProps : DestructibleProps
     private float _ExplosionRadius = .5f;
     private float _ExplosionForce = 10f; 
     private static float _ExplosionDmg = 150f;
+    public ParticleSystem explosionParticleSytem;
 
     public override void Die()
     {
@@ -16,6 +17,7 @@ public class ExplosiveProps : DestructibleProps
         sphere.transform.position = transform.position;
         SphereCollider collider = sphere.AddComponent<SphereCollider>();
         StartCoroutine(ExplodeCoroutine(sphere, 1f));
+        explosionParticleSytem.Emit(2);
     }
 
     private IEnumerator ExplodeCoroutine(GameObject sphere, float time)
@@ -44,3 +46,4 @@ public class ExplosiveProps : DestructibleProps
         Destroy(sphere);
     }
 }
+

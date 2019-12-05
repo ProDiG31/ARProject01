@@ -12,7 +12,7 @@ public class CatapultController : MonoBehaviour
     public GameObject targetIndicator; 
 
     [SerializeField]
-    private float deltaStrengh = 150f;
+    private float _deltaStrengh = 150f;
 
     private float width;
     private float height;
@@ -85,6 +85,7 @@ public class CatapultController : MonoBehaviour
         UpdateRayCastResult();
         UpdateTarget();
         HandleTouch();
+        UpdateUI();
     }
 
     public Vector3 GetScreenCenter()
@@ -110,7 +111,7 @@ public class CatapultController : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 Vector2 pos = touch.position;
-                _pullStrengh = (_firstTouchPosition.y - pos.y) / height;
+                _pullStrengh = (_firstTouchPosition.y - pos.y) / (Screen.height);
                 _catapultAnimator.SetFloat("PullStrengh", _pullStrengh);
             }
             if (touch.phase == TouchPhase.Ended)
@@ -118,6 +119,11 @@ public class CatapultController : MonoBehaviour
                 _catapultAnimator.SetBool("isTouching", false);
             }
         }
+    }
+
+    private void UpdateUI()
+    {
+        ControllerPlane.IGCanvas.UpdateStrengthSlider(_pullStrengh);
     }
 
     private void UpdateRayCastResult()
@@ -185,8 +191,9 @@ public class CatapultController : MonoBehaviour
 
             Vector3 SpawnPosition = hitSphere.point; // + (- ARCamera.transform.forward);
             GameObject rockThrow = Instantiate(rock, SpawnPosition, Quaternion.Euler(ARCamera.transform.forward), ControllerPlane.levelCreated.transform);
-            rockThrow.GetComponent<Rigidbody>().AddForce(_catapultAnimator.GetFloat("PullStrengh") * deltaStrengh * ARCamera.transform.forward, ForceMode.Impulse);
+            rockThrow.GetComponent<Rigidbody>().AddForce(_catapultAnimator.GetFloat("PullStrengh") * _deltaStrengh * ARCamera.transform.forward, ForceMode.Impulse);
             _catapultAnimator.SetFloat("PullStrengh", 0f);
+            _pullStrengh = 0f;
         }
     }
 
