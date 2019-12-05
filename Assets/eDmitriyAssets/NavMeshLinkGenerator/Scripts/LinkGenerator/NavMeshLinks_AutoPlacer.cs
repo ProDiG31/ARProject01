@@ -1,11 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.SceneManagement;
 using UnityEngine.AI;
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -14,7 +11,6 @@ using UnityEditor;
 
 namespace eDmitriyAssets.NavmeshLinksGenerator
 {
-    
     public class NavMeshLinks_AutoPlacer : MonoBehaviour
     {
         #region Variables
@@ -59,7 +55,7 @@ namespace eDmitriyAssets.NavmeshLinksGenerator
 
 
             #if UNITY_EDITOR
-            //if( !Application.isPlaying ) EditorSceneManager.MarkSceneDirty( gameObject.scene );
+            if( !Application.isPlaying ) UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty( gameObject.scene );
             #endif
 
         }

@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599088407253471123}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48395005, y: -0.486, z: -0.75}
+  m_LocalPosition: {x: -0.48395005, y: -0.486, z: -0.751}
   m_LocalScale: {x: 0.5, y: 0.4999999, z: 2}
   m_Children: []
   m_Father: {fileID: 266509278388236682}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &5797770922786307778
 GameObject:
@@ -148,9 +149,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5797770922786307778}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -1.1420126, y: 1.8353, z: 2.12875}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1.25, y: 1.249999, z: 1.249999}
   m_Children:
   - {fileID: 3707246402615128032}
   - {fileID: 8838224287508350616}
@@ -159,7 +160,7 @@ Transform:
   - {fileID: 3668481537820588119}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!1 &5832795233779214859
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5832795233779214859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48638994, y: 0.495, z: -0.739}
+  m_LocalPosition: {x: -0.48638994, y: 0.495, z: -0.74}
   m_LocalScale: {x: 0.5, y: 0.4999999, z: 2}
   m_Children: []
   m_Father: {fileID: 266509278388236682}
@@ -284,6 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &6775440113225310102
 GameObject:
@@ -314,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6775440113225310102}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48637804, y: 0.489, z: -0.749}
+  m_LocalPosition: {x: 0.48637804, y: 0.489, z: -0.75}
   m_LocalScale: {x: 0.5, y: 0.4999999, z: 2}
   m_Children: []
   m_Father: {fileID: 266509278388236682}
@@ -409,6 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &7326306331512308385
 GameObject:
@@ -534,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 750
   Reward: 500
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &8526816314748079715
 GameObject:
@@ -564,7 +568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8526816314748079715}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.48394606, y: -0.486, z: -0.75}
+  m_LocalPosition: {x: 0.48394606, y: -0.486, z: -0.751}
   m_LocalScale: {x: 0.5, y: 0.4999999, z: 2}
   m_Children: []
   m_Father: {fileID: 266509278388236682}
@@ -659,4 +663,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
+  explosionPrefab: {fileID: 0}
   _lifePoint: 0

@@ -29,7 +29,6 @@ public class CanvasController : MonoBehaviour
         Quaternion fromRotation = ControllerPlane.levelCreated.transform.rotation;
         Quaternion toRotation = Quaternion.Euler(fromRotation.eulerAngles + new Vector3(0, angleYRotation, 0));
         float elapsedTime = 0;
-
         while (elapsedTime < time)
         {
             ControllerPlane.levelCreated.transform.rotation = Quaternion.Lerp(fromRotation, toRotation, (elapsedTime / time));
