@@ -44,7 +44,7 @@ public class MoveTo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    #if UNITY_EDITOR
+        #if UNITY_EDITOR
         _agent.speed = 2f;
         #endif
         _animator = GetComponent<Animator>();
@@ -55,9 +55,12 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!_levelPlaneManager.IsKinematic && IsAgentOnNavMesh())
-            ManageAgent();
-        //AdjustPosition();
+        if(_levelPlaneManager != null )
+        {
+            if(!_levelPlaneManager.IsKinematic && IsAgentOnNavMesh())
+                ManageAgent();
+            //AdjustPosition();
+        }
     }
 
     private void ManageAgent()

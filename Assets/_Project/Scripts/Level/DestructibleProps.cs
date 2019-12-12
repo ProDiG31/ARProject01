@@ -21,12 +21,15 @@ public class DestructibleProps : MonoBehaviour
 
     public virtual void Die()
     {
+        //if(!GetComponentInParent<LevelPlaneManager>().IsKinematic)
+        //{
+        //}
         ControllerPlane.AddRewardPoint(Reward);
         GameObject Explosion = Instantiate(SmokePrefab, transform.position, transform.rotation, transform);
         Explosion.transform.localPosition = Vector3.zero;
         Explosion.GetComponent<ParticleSystem>().Emit(1);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, 2f); 
     }
 
     //Rigidbody impactedRigidbody
@@ -34,7 +37,7 @@ public class DestructibleProps : MonoBehaviour
     {
         //e =  1/2 mv²
         float energy = .5f * (mass * (velocity * velocity));
-        Debug.Log("Energy received = " + energy , this);
+        ControllerPlane.Log("Energy received = " + energy);
         ApplyDmg((int)energy);
     }
 

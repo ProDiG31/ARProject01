@@ -23,6 +23,7 @@ public class LevelPlaneManager : MonoBehaviour
         _navMeshSurfaces = GetComponentsInChildren<NavMeshSurface>();
         _navMeshLinks = GetComponentInChildren<NavMeshLinks_AutoPlacer>();
         _navMeshSurfaces[1].BuildNavMesh();
+        GenerateNavigation();
 
         PlaneRigidbody = GetComponent<Rigidbody>();
         childenRigid = GetComponentsInChildren<Rigidbody>();
@@ -59,11 +60,6 @@ public class LevelPlaneManager : MonoBehaviour
         }
 
         IsKinematic = false;
-        foreach (var surface in _navMeshSurfaces)
-        {
-            if (surface.CompareTag("LevelGround"))
-                _navMeshSurfaces[1].BuildNavMesh();
-        }
     }
 
     private void GenerateNavigation()
@@ -73,6 +69,7 @@ public class LevelPlaneManager : MonoBehaviour
             if(!surface.CompareTag("LevelGround"))
             {
                 surface.BuildNavMesh();
+                Debug.Log("Surface baked");
             }
         }
         _navMeshLinks.Generate();
