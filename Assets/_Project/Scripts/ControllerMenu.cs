@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ControllerMenu : MonoBehaviour
 {
-    public static readonly string GAME_LEVEL_NAME = "GameScene";
-    public static readonly string LEVEL_INDEX_KEY = "LevelIndex";
-    public static readonly string GAME_MODE = "GameMode";
+    public const string GAME_LEVEL_NAME = "GameScene";
+    public const string LEVEL_INDEX_KEY = "LevelIndex";
+    public const string GAME_MODE = "GameMode";
 
-    public static readonly string ARCADE_GAME_MODE = "ArcadeGameMode";
-    public static readonly string TIME_GAME_MODE = "TimeGameMode";
+    public const string ARCADE_GAME_MODE = "ArcadeGameMode";
+    public const string TIME_GAME_MODE = "TimeGameMode";
 
     public void LoadLevel(string levelName)
     {

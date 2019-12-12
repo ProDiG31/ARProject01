@@ -34,7 +34,7 @@ public class DestructibleProps : MonoBehaviour
     {
         //e =  1/2 mv²
         float energy = .5f * (mass * (velocity * velocity));
-        Debug.Log("Energy received = " + energy , this);
+        //Debug.Log("Energy received = " + energy , this);
         ApplyDmg((int)energy);
     }
 

@@ -56,6 +56,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -215,6 +216,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -248,7 +250,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8125577276910048691}
-  - component: {fileID: 1765674766550029310}
   - component: {fileID: 8965205937362831642}
   m_Layer: 10
   m_Name: Level 003
@@ -274,25 +275,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1765674766550029310
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8125577276910048703}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 013a297da260a654ebb55ee9058adc62, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8965205937362831642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +299,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Structure01
       objectReference: {fileID: 0}
+    - target: {fileID: 4724292419396832940, guid: 1b4dd163f267f804aaa9eb28d406dad6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 64cdcb7f1b9e62540b017c1e2ed7627f, type: 2}
     - target: {fileID: 7517222604345103713, guid: 1b4dd163f267f804aaa9eb28d406dad6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -372,11 +359,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4724292419396832940, guid: 1b4dd163f267f804aaa9eb28d406dad6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 64cdcb7f1b9e62540b017c1e2ed7627f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b4dd163f267f804aaa9eb28d406dad6, type: 3}
 --- !u!4 &7333988861783677910 stripped
@@ -392,11 +374,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 5797770922786307778, guid: a53281e173967e54a844475ac458da74,
-        type: 3}
-      propertyPath: m_Name
-      value: Structure01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 266509278388236682, guid: a53281e173967e54a844475ac458da74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -462,6 +439,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.249999
       objectReference: {fileID: 0}
+    - target: {fileID: 5797770922786307778, guid: a53281e173967e54a844475ac458da74,
+        type: 3}
+      propertyPath: m_Name
+      value: Structure01 (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a53281e173967e54a844475ac458da74, type: 3}
 --- !u!4 &2517836691837472038 stripped
@@ -477,11 +459,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
-        type: 3}
-      propertyPath: m_Name
-      value: ExplosiveCube
-      objectReference: {fileID: 0}
     - target: {fileID: 5797763292153502747, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -537,6 +514,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+        type: 3}
+      propertyPath: m_Name
+      value: ExplosiveCube
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f7b062360b1e44eb70aef227d3d1d4, type: 3}
 --- !u!4 &7535174756134172978 stripped
@@ -552,10 +534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: m_Name
-      value: ExplosiveCube (3)
+      propertyPath: ExplosionRadius
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5797763292153502747, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
@@ -612,10 +594,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: ExplosionRadius
-      value: 5
+      propertyPath: m_Name
+      value: ExplosiveCube (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f7b062360b1e44eb70aef227d3d1d4, type: 3}
@@ -632,10 +614,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: m_Name
-      value: ExplosiveCube (1)
+      propertyPath: ExplosionRadius
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5797763292153502747, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
@@ -692,10 +674,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: ExplosionRadius
-      value: 0.5
+      propertyPath: m_Name
+      value: ExplosiveCube (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f7b062360b1e44eb70aef227d3d1d4, type: 3}
@@ -712,11 +694,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 5797770922786307778, guid: a53281e173967e54a844475ac458da74,
-        type: 3}
-      propertyPath: m_Name
-      value: Structure01
-      objectReference: {fileID: 0}
     - target: {fileID: 266509278388236682, guid: a53281e173967e54a844475ac458da74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -782,6 +759,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.249999
       objectReference: {fileID: 0}
+    - target: {fileID: 5797770922786307778, guid: a53281e173967e54a844475ac458da74,
+        type: 3}
+      propertyPath: m_Name
+      value: Structure01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a53281e173967e54a844475ac458da74, type: 3}
 --- !u!4 &6836495739566501584 stripped
@@ -797,10 +779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2617121128035561201}
     m_Modifications:
-    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: m_Name
-      value: ExplosiveCube (2)
+      propertyPath: ExplosionRadius
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5797763292153502747, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
@@ -857,10 +839,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1450038947310792834, guid: 80f7b062360b1e44eb70aef227d3d1d4,
+    - target: {fileID: 8006028976838014987, guid: 80f7b062360b1e44eb70aef227d3d1d4,
         type: 3}
-      propertyPath: ExplosionRadius
-      value: 1
+      propertyPath: m_Name
+      value: ExplosiveCube (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80f7b062360b1e44eb70aef227d3d1d4, type: 3}

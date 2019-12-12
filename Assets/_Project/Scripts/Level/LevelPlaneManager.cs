@@ -26,7 +26,7 @@ public class LevelPlaneManager : MonoBehaviour
 
         PlaneRigidbody = GetComponent<Rigidbody>();
         childenRigid = GetComponentsInChildren<Rigidbody>();
-        EnableKinematicRigidBody();
+        //EnableKinematicRigidBody();
     }
 
     private void Update()
@@ -42,29 +42,29 @@ public class LevelPlaneManager : MonoBehaviour
         }
     }
 
-    public void EnableKinematicRigidBody()
-    {
-        IsKinematic = true;
-        foreach(Rigidbody rgd in childenRigid)
-        {
-            if(rgd != PlaneRigidbody) rgd.isKinematic = true;
-        }
-    }
+    //public void EnableKinematicRigidBody()
+    //{
+    //    IsKinematic = true;
+    //    foreach(Rigidbody rgd in childenRigid)
+    //    {
+    //        if(rgd != PlaneRigidbody) rgd.isKinematic = true;
+    //    }
+    //}
 
-    public void DisableKinematicRigidBody()
-    {
-        foreach (Rigidbody rgd in childenRigid)
-        {
-            if (rgd != PlaneRigidbody) rgd.isKinematic = false;
-        }
+    //public void DisableKinematicRigidBody()
+    //{
+    //    foreach (Rigidbody rgd in childenRigid)
+    //    {
+    //        if (rgd != PlaneRigidbody) rgd.isKinematic = false;
+    //    }
 
-        IsKinematic = false;
-        foreach (var surface in _navMeshSurfaces)
-        {
-            if (surface.CompareTag("LevelGround"))
-                _navMeshSurfaces[1].BuildNavMesh();
-        }
-    }
+    //    IsKinematic = false;
+    //    foreach (var surface in _navMeshSurfaces)
+    //    {
+    //        if (surface.CompareTag("LevelGround"))
+    //            _navMeshSurfaces[1].BuildNavMesh();
+    //    }
+    //}
 
     private void GenerateNavigation()
     {

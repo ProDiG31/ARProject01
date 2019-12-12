@@ -15,8 +15,12 @@ public class CanvasController : MonoBehaviour
     public GameObject RotateNegativeButton;
     public GameObject Score;
     public GameObject PausePanel;
+    public GameObject StarsPanel;
+
+    public int ActivatedStar = 0;
     private bool _isRotating = false;
 
+    private List<GameObject> _starsArray;
 
     public void ActivateGameUI()
     {
@@ -25,6 +29,8 @@ public class CanvasController : MonoBehaviour
         Catapult.SetActive(true);
         RotatePositiveButton.SetActive(true);
         RotateNegativeButton.SetActive(true);
+        StarsPanel.SetActive(true);
+
         HandAnimationPreview.SetActive(false);
         PausePanel.SetActive(false);
     }
@@ -37,6 +43,30 @@ public class CanvasController : MonoBehaviour
         RotatePositiveButton.SetActive(false);
         RotateNegativeButton.SetActive(false);
         PausePanel.SetActive(false);
+        StarsPanel.SetActive(false);
+    }
+
+    public void DisableAllStar()
+    {
+        _starsArray = new List<GameObject>();
+        foreach(Transform star in StarsPanel.GetComponentsInChildren<Transform>())
+        {
+            _starsArray.Add(star.gameObject);
+            star.gameObject.SetActive(false);
+        }
+    }
+
+    public void ActivateOneStar()
+    {
+        foreach (GameObject star in _starsArray)
+        {
+            if (!star.activeSelf)
+            {
+                star.SetActive(true);
+                ActivatedStar++;
+                return;
+            }
+        }
     }
 
     public void UpdateStrengthSlider(float str)
@@ -67,6 +97,7 @@ public class CanvasController : MonoBehaviour
         PausePanel.SetActive(false);
     }
 
+    #region LevelRotateRegion
     public void RotatePositiveLevel()
     {
         if (!_isRotating) StartCoroutine(RotateCouroutine(90f, 1f));
@@ -91,5 +122,6 @@ public class CanvasController : MonoBehaviour
         }
         _isRotating = false;
     }
+    #endregion LevelRotateRegion
 
 }

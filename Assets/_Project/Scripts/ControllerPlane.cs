@@ -23,6 +23,8 @@ public class ControllerPlane : MonoBehaviour
     private static Text _Logger;
     private static Text _Score;
 
+
+    public static int maxRewardPoint = 0; 
     public static GameObject ExplosionSystem;
     public static CanvasController IGCanvas;
     public static GameObject levelCreated;
@@ -64,6 +66,7 @@ public class ControllerPlane : MonoBehaviour
         Log(positionSpawn.ToString());
         levelCreated = Instantiate(LevelPrefab, positionSpawn, Quaternion.identity, levelWrapper.transform);
         IGCanvas.ActivateGameUI();
+        IGCanvas.DisableAllStar();
     }
 
     void DisablePlanes()
@@ -82,6 +85,14 @@ public class ControllerPlane : MonoBehaviour
     public static void AddRewardPoint(int rwd)
     {
         int ActualScore = int.Parse(_Score.text);
-        _Score.text = (ActualScore + rwd).ToString(); 
+        _Score.text = (ActualScore + rwd).ToString() + " / " + maxRewardPoint.ToString(); 
+
+        if(maxRewardPoint != 0)
+        {
+            if(ActualScore > (IGCanvas.ActivatedStar * .25) * maxRewardPoint)
+            {
+                IGCanvas.ActivateOneStar();
+            }
+        }
     }
 }

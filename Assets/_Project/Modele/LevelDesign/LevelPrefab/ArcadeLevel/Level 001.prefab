@@ -39,7 +39,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945739324406478183}
-  - component: {fileID: 7303930694025999146}
   - component: {fileID: 123539821679618510}
   m_Layer: 10
   m_Name: Level 001
@@ -56,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945739324406478187}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.28125, y: 0.6665039, z: 2.064087}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6453034087330516517}
@@ -65,25 +64,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7303930694025999146
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945739324406478187}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 013a297da260a654ebb55ee9058adc62, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &123539821679618510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &4487800646700614607
 GameObject:
@@ -502,7 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &6150309966059309264
 GameObject:
@@ -788,7 +768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &8250373574426669785
 GameObject:
