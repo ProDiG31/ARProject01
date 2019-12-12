@@ -59,10 +59,11 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 7760375262151609378, guid: 0e37bf35680b5c14f8dbc346d12b195f, type: 3}
+  - {fileID: -876546973899608171, guid: 0e37bf35680b5c14f8dbc346d12b195f, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -152,4 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 300
   Reward: 50
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0

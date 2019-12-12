@@ -57,6 +57,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -124,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &5797770922786307778
 GameObject:
@@ -218,6 +219,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -285,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &6775440113225310102
 GameObject:
@@ -344,6 +346,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -411,7 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0
 --- !u!1 &7326306331512308385
 GameObject:
@@ -470,6 +473,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -537,7 +541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 750
   Reward: 500
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0
 --- !u!1 &8526816314748079715
 GameObject:
@@ -596,6 +601,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -663,5 +669,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LifePointMax: 500
   Reward: 100
-  explosionPrefab: {fileID: 0}
+  SmokePrefab: {fileID: 0}
   _lifePoint: 0

@@ -17,7 +17,7 @@ public class ExplosiveProps : DestructibleProps
         sphere.transform.position = transform.position;
         SphereCollider collider = sphere.AddComponent<SphereCollider>();
         StartCoroutine(ExplodeCoroutine(sphere, 1f));
-        explosionParticleSytem.Emit(2);
+        explosionParticleSytem.Emit(1);
     }
 
     private IEnumerator ExplodeCoroutine(GameObject sphere, float time)

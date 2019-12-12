@@ -7,7 +7,7 @@ public class DestructibleProps : MonoBehaviour
 
     public int LifePointMax;
     public int Reward;
-    public GameObject explosionPrefab;
+    public GameObject SmokePrefab;
 
     public int _lifePoint;
     private Rigidbody _propsRgbd;
@@ -22,7 +22,7 @@ public class DestructibleProps : MonoBehaviour
     public virtual void Die()
     {
         ControllerPlane.AddRewardPoint(Reward);
-        GameObject Explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, transform);
+        GameObject Explosion = Instantiate(SmokePrefab, transform.position, transform.rotation, transform);
         Explosion.transform.localPosition = Vector3.zero;
         Explosion.GetComponent<ParticleSystem>().Emit(1);
         gameObject.GetComponent<MeshRenderer>().enabled = false;

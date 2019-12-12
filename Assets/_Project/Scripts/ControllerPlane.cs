@@ -13,25 +13,19 @@ public class ControllerPlane : MonoBehaviour
 
     //DEBBUG / TEST
     public Text Logger;
-    public Text Score; 
-    private static Text _Logger;
-    private static Text _Score;
-    public static GameObject ExplosionSystem;
+    public Text Score;
 
     public GameObject LevelPrefab;
     public GameObject levelWrapper;
     public Canvas UI;
-
-    public static CanvasController IGCanvas;
-    public static GameObject levelCreated;
-
     public GameObject ParticleSystem;
 
-    //public GameObject Catapult;
-    //public GameObject HandAnimationPreview;
-    //public GameObject RotatePositiveButton;
-    //public GameObject RotateNegativeButton;
+    private static Text _Logger;
+    private static Text _Score;
 
+    public static GameObject ExplosionSystem;
+    public static CanvasController IGCanvas;
+    public static GameObject levelCreated;
     public static bool isLevelCreated = false;
 
     // Start is called before the first frame update
