@@ -7,10 +7,7 @@ public class FallingObjectHandler : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         DestructibleProps props = other.gameObject.GetComponent<DestructibleProps>();
-        if (props)
-        {
-            props.Die();
-        }
+        if (props) props.Die(); 
     }
 }
 

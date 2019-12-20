@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 200
+  LifePointMax: 120
   Reward: 50
-  SmokePrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0

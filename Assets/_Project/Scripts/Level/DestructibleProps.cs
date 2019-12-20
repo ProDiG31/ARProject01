@@ -29,7 +29,7 @@ public class DestructibleProps : MonoBehaviour
         Explosion.transform.localPosition = Vector3.zero;
         Explosion.GetComponent<ParticleSystem>().Emit(1);
         gameObject.GetComponent<MeshRenderer>().enabled = false;
-        Destroy(gameObject, 2f); 
+        Destroy(gameObject, 2f);
     }
 
     //Rigidbody impactedRigidbody
@@ -37,7 +37,7 @@ public class DestructibleProps : MonoBehaviour
     {
         //e =  1/2 mv²
         float energy = .5f * (mass * (velocity * velocity));
-        ControllerPlane.Log("Energy received = " + energy);
+        //Debug.Log("Energy received = " + energy , this);
         ApplyDmg((int)energy);
     }
 

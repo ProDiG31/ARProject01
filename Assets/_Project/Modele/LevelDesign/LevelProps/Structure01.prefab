@@ -123,9 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 500
+  LifePointMax: 200
   Reward: 100
-  SmokePrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0
 --- !u!1 &5797770922786307778
 GameObject:
@@ -285,9 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 500
+  LifePointMax: 200
   Reward: 100
-  SmokePrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0
 --- !u!1 &6775440113225310102
 GameObject:
@@ -412,9 +414,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 500
+  LifePointMax: 200
   Reward: 100
-  SmokePrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0
 --- !u!1 &7326306331512308385
 GameObject:
@@ -539,7 +542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 750
+  LifePointMax: 300
   Reward: 500
   SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
     type: 3}
@@ -667,7 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74b926c3100fc340990d2780339c882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LifePointMax: 500
+  LifePointMax: 200
   Reward: 100
-  SmokePrefab: {fileID: 0}
+  SmokePrefab: {fileID: 1114744760281710579, guid: 4ec0744900bd1904e815645d5da183c1,
+    type: 3}
   _lifePoint: 0
