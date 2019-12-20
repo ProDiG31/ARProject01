@@ -5,7 +5,10 @@ Les technologies et librairies utilisées :
   - NavMeshComponent (https://github.com/Unity-Technologies/NavMeshComponents)
   - NavMeshLinks Generator (https://forum.unity.com/threads/navmesh-links-generator-for-navmeshcomponents.515143/)
   
-  
+
+Configuration Unity. 
+
+	Le pro
 La structure du projet se répsente de la manière suivante : 
   - _Project
     - Images / Materials / Sound ... : Ressources diverses 
