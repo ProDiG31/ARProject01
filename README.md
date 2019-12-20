@@ -1,5 +1,7 @@
 Furious Bunny - Projet AR dévéloppé dans le cadre du cours époyme (Ynov - Toulouse 2019/2020)
 
+UNITY Version : 2019.3
+
 Les technologies et librairies utilisées : 
   - ARFoundation
   - NavMeshComponent (https://github.com/Unity-Technologies/NavMeshComponents)
@@ -8,7 +10,10 @@ Les technologies et librairies utilisées :
 
 Configuration Unity. 
 
-	Le pro
+	Le projet utilisé le nouveau Renderer Pipeline URP (Universal Renderer Pipeline) disponible uniquement depuis la version 2019.3 d' Unity. 
+  L'utilisation de L'URP permet l'utilisation de ShaderGraph. 
+  Une configuration specifique de l'URP a du etre fonctionné dans un environement en RA. 
+
 La structure du projet se répsente de la manière suivante : 
   - _Project
     - Images / Materials / Sound ... : Ressources diverses 
